@@ -1,7 +1,5 @@
 package com.luv2code.hibernate.demo;
 
-import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -36,7 +34,7 @@ public class OneToOneBi {
 			session.beginTransaction();
 
 //			getting data
-			InstructorDetails result=session.get(InstructorDetails.class, 5);
+			InstructorDetails result=session.get(InstructorDetails.class, 4);
 			
 			System.out.println(result);
 			System.out.println(result.getTheinstructor());

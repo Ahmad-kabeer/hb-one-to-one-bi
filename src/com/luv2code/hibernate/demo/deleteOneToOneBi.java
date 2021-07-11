@@ -7,7 +7,7 @@ import org.hibernate.cfg.Configuration;
 import com.luv2code.hibernate.demo.entity.Instructor;
 import com.luv2code.hibernate.demo.entity.InstructorDetails;
 
-public class CreateDemo {
+public class deleteOneToOneBi {
 
 	public static void main(String[] args) {
 
@@ -22,21 +22,19 @@ public class CreateDemo {
 		Session session = factory.getCurrentSession(); 
 
 		try {
-			
-			Instructor theinstructor = new Instructor("demo", "demo", "demo@gmail.com");
-			
-			InstructorDetails theinstructorDetails= new InstructorDetails("www.demo.com", "demo");
-			
-			theinstructor.setInstructorDetails(theinstructorDetails);
-						
+		
 //			start transaction
 			System.out.println("Begin session1");
 			session.beginTransaction();
+
+//			getting data
+			InstructorDetails result=session.get(InstructorDetails.class, 7);
 			
-//			save object
-			System.out.println("Saving data");
-//			Note: this will also save the information of InstructorDetails
-			session.save(theinstructor);
+			System.out.println(result);
+			System.out.println(result.getTheinstructor());
+			
+//			delete
+			session.delete(result);
 			
 //			make commit
 			System.out.println("commit session1");

@@ -7,7 +7,9 @@ import org.hibernate.cfg.Configuration;
 import com.luv2code.hibernate.demo.entity.Instructor;
 import com.luv2code.hibernate.demo.entity.InstructorDetails;
 
-public class DeleteDemo {
+public class deleteOnlyInstructorDetails {
+	
+//	in this we have to modidy the cascade type of instructorDetails classs. select all cascade type except remove.
 
 	public static void main(String[] args) {
 
@@ -22,22 +24,18 @@ public class DeleteDemo {
 		Session session = factory.getCurrentSession(); 
 
 		try {
-			
-			int id=1;			
-			
-			//start transaction
+		
+//			start transaction
 			System.out.println("Begin session1");
 			session.beginTransaction();
 
-			Instructor theinstructor = session.get(Instructor.class, id);
+//			getting data
+			InstructorDetails result=session.get(InstructorDetails.class, 9);
 			
-//			deleting object
-			System.out.println("Saving data");
+			result.getTheinstructor().setInstructorDetails(null);
 			
-			if(theinstructor!=null) {
-//				this will also delete the information of the instructorDetails
-				session.delete(theinstructor);
-			}
+//			delete
+			session.delete(result);
 			
 //			make commit
 			System.out.println("commit session1");
