@@ -24,9 +24,9 @@ public class OneToOneBi {
 		try {
 			
 //			Instructor theinstructor = new Instructor("naseema", "khatoon", "naseema@gmail.com");
-			
+//			
 //			InstructorDetails theinstructorDetails= new InstructorDetails("www.naseema.com", "house wife");
-			
+//			
 //			theinstructor.setInstructorDetails(theinstructorDetails);
 						
 //			start transaction
